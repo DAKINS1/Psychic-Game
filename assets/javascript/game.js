@@ -31,31 +31,41 @@ document.onkeyup = function(event) {
   // computer picks new guess for new game
   if (computerGuess == userGuess) {
     wins++;
-    alert("Hey! You're pretty psychic. Good job!")
+    var audio = new Audio("assets/audio/magic-wand-sound-effect.mp3");
+        audio.volume = 0.1;
+        audio.play();
+        var sidebarphoto ="<img src=\"assets/images/SN.png\" class=\"img-responsive\" alt=\"heart tarot card\">";
+        document.querySelector("#sidebarphoto").innerHTML = sidebarphoto;
     guessesLeft = 9;
     guessesSoFar = [];
     computerGuess = options[Math.floor(Math.random() * options.length)];
   }
+
 
   // if guessesLeft gets to 0, user loses, so losses goes up by 1
   // game resets: guessesLeft goes back to 9, and guessesSoFar array empties out
   // computer picks a new guess for new game
   if (guessesLeft == 0) {
     losses++;
-    alert("Ha! You're not very psychic. Try again?")
+    var audio = new Audio("assets/audio/magical-explosion.mp3");
+        audio.volume = 0.1;
+        audio.play();
+        var sidebarphoto ="<img src=\"assets/images/S0.png\" class=\"img-responsive\" alt=\"death tarot card\">";
+        document.querySelector("#sidebarphoto").innerHTML = sidebarphoto;
     guessesLeft = 9;
     guessesSoFar = [];
     computerGuess = options[Math.floor(Math.random() * options.length)];
   }
 
+
   //id game is selected to be changed in the index.html document- the var html shows what changes.
   //The entire content of div id game must be written in or it will disappear when this runs.
 var html = "<h1>The Psychic Game</h1>" +
-  "<p>How psychic are you? Play this game to find out. What letter am I thinking of?</p>" +
+  "<p>How psychic are you? What letter am I thinking of?</p>" +
   "<h4>Wins: " + wins + "</h4>" +
   "<h4>Losses: " + losses + "</h4>" +
   "<h4>Guesses Left: " + guessesLeft + "</h4>" +
-  "<h4>Your guesses so far: " + guessesSoFar + "</h4>";
+  "<h4>Your guesses so far: "  + guessesSoFar + "</h4>";
   // place html into the game ID
   document.querySelector("#game").innerHTML = html;
 
