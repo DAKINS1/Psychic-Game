@@ -14,16 +14,24 @@ h4, p {
 
 @media screen and (max-width: 980px) {
 #sidebarphoto{
-    margin-left: 30%;
+    margin-left: 30%
+
 }
 
 }
 @media screen and (max-width: 768px) {
+#sidebarphoto {
 
+
+
+}
+}
 @media screen and (max-width: 640px) {
 
 #sidebarphoto {
-    margin-left: 5%;
+    margin-left: 25%;
+    width: 50%;
+    height: auto;
 }
 }
 }
